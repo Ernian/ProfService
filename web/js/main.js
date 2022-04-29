@@ -213,6 +213,26 @@ jQuery(document).ready(function ($) {
         }
     })
 
+    $('body').on('click', function (event) {
+        if (event.target.classList.contains('route-link')) {
+            const controller = event.target.dataset.controller
+            const id = event.target.dataset.id
+            const url = id ? `/${controller}?id=${id}` : `/${controller}`
+            $.ajax({
+                url: url,
+                type: 'POST',
+                success: function (response) {
+                    document.getElementById('main-content').innerHTML = JSON.parse(response)
+                    console.log(url)
+                },
+                error: function (error) {
+                    console.log(error)
+                    console.log(url)
+                }
+            })
+        }
+    })
+
     let str = ''
     const reference = 'dj'
     document.addEventListener('keypress', event => {

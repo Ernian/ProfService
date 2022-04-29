@@ -47,12 +47,12 @@ FontAwesomeAsset::register($this);
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
                                 <li><a href="<?= Url::home() ?>">ProfService</a></li>
-                                <li><a href="<?= Url::to(['/conditioners', 'id' => 1]) ?>">Кондиционеры</a></li>
-                                <li><a href="<?= Url::to(['/generators', 'id' => 2]) ?>">Генераторы</a></li>
+                                <li><a href="#" class="route-link" data-controller="product" data-id="1">Кондиционеры</a></li>
+                                <li><a href="#" class="route-link" data-controller="product" data-id="2">Генераторы</a></li>
                                 <?php if (!Yii::$app->user->isGuest) : ?>
                                     <li><a href="<?= Url::to(['/admin']) ?>">Заказы</a></li>
                                 <?php endif ?>
-                                <li><a href="<?= Url::to(['/contacts']) ?>">Контакты</a></li>
+                                <li><a href="#" class="route-link" data-controller="site/contacts">Контакты</a></li>
                             </ul>
                             <form method="GET" action="<?= Url::to(['/search']) ?>" class="navbar-form navbar-left">
                                 <div class="form-group">
@@ -124,7 +124,10 @@ FontAwesomeAsset::register($this);
         </div>
     </div>
 
-    <?= $content ?>
+    <main id="main-content">
+        <?= $content ?>
+    </main>
+
 
     <div class="footer-bottom-area">
         <div class="container">

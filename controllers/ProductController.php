@@ -22,7 +22,8 @@ class ProductController extends AppController
             $this->setMetaTags('ProfService');
             throw new HttpException(404, 'Категория товаров не найдена');
         }
-        return $this->render('products', compact('products', 'pages'));
+        $this->layout = false;
+        return json_encode($this->render('products', compact('products', 'pages')));
     }
 
     public function actionView($id)
@@ -37,7 +38,8 @@ class ProductController extends AppController
             $product['meta-keywords'],
             $product['meta-description']
         );
-        return $this->render('view', compact('product'));
+        $this->layout = false;
+        return json_encode($this->render('view', compact('product')));
     }
 
     public function actionSearch()

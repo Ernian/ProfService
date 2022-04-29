@@ -26,13 +26,20 @@ class SiteController extends AppController
         $newProducts = Products::find()->asArray()->where(['new' => 1])->limit(3)->all();
         $saleProducts = Products::find()->asArray()->where(['sale' => 1])->limit(3)->all();
         $clients = Clients::find()->asArray()->all();
-        return $this->render('index', compact('homePage', 'hitProducts', 'newProducts', 'saleProducts', 'clients'));
+        return $this->render('index', compact(
+            'homePage',
+            'hitProducts',
+            'newProducts',
+            'saleProducts',
+            'clients'
+        ));
     }
 
     public function actionContacts()
     {
         $this->setMetaTags('ProfService | Contacts');
-        return $this->render('contacts');
+        $this->layout = false;
+        return json_encode($this->render('contacts'));
     }
 
     /**

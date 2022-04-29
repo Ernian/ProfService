@@ -84,11 +84,11 @@ use yii\helpers\Url;
                                         <?= Html::img("@web/img/products/{$product['img']}") ?>
                                         <div class="product-hover">
                                             <a href="#" class="add-to-cart-link add-to-cart" data-id="<?= $product['id'] ?>"><i class="fa fa-shopping-cart"></i> В корзину</a>
-                                            <a href="<?= Url::to(['/product/view', 'id' => $product['id']]) ?>" class="view-details-link"><i class="fa fa-link"></i>Подробнее</a>
+                                            <a href="#" class="view-details-link route-link" data-controller="product/view" data-id="<?= $product['id'] ?>"><i class="fa fa-link"></i>Подробнее</a>
                                         </div>
                                     </div>
 
-                                    <h2><a href="<?= Url::to(['/product/view', 'id' => $product['id']]) ?>"><?= $product['name'] ?></a></h2>
+                                    <h2><a href="#" class="route-link" data-controller="product/view" data-id="<?= $product['id'] ?>"><?= $product['name'] ?></a></h2>
 
                                     <div class="product-carousel-price">
                                         <ins><?= $product['price'] ?></a></ins>
